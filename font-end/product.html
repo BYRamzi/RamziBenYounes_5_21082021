@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oricamera</title>
+
+    <!--CSS-->
+    <link href="styles/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo-oricamera.jpg" alt="Logo Oricamera" width="50" height="50" class="d-inline-block"/>
+                Oricamera
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active"><a class="nav-link" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Panier</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="product-card">
+                <div class="product-card__img">
+                    <img src="" alt="" class="img">
+                </div>
+                <div class="product-card__infos">
+                    <h3 class="product-card__infos__title"></h3>
+                    <p class="product-card__infos__description"></p>
+                    <p class="product-card__infos__price"></p>
+                    <div class="product-card__infos__quantity">
+                        <label for="cameraNumber">Quantité :</label>
+                        <input id="cameraNumber" type="number" name="cameraNumber" value="1" min="1">
+                    </div>
+                    <div class="product-card__infos__lenses">
+                        <label for="lense-select">Lentilles</label>
+                        <select name="lense" id="lense-select"></select>
+                    </div>
+                    <div class="added-to-cart-confirmation">
+                        <p class="confirmation-text"></p>
+                    </div>
+                    <div class="product-card__infos__buttons">
+                        <a href="index.html">
+                            <div class="product-card__infos__button back-to-home">
+                                Revenir aux caméras
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="product-card__infos__button add-to-cart">
+                                Ajouter au panier
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark">
+        <div class="container-fluid text-center">
+            <div class="row">
+                <div class="col">
+                    <ul class="list-unstyled ">
+                        <li class="list-inline-item"><a href="mailto:oricamera@orinoco.fr">Contact</a></li>
+                        <li class="list-inline-item"><a href="#">Mentions légales</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/product.js"></script>
+    
+</body>
+
+    <!-- jQuery link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="styles/bootstrap/js/bootstrap.min.js"></script>
+</html>
