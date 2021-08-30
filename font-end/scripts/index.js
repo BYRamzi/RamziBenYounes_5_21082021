@@ -8,7 +8,7 @@ function getArticles() {
     .catch((error) => {
       let productsContainer = document.querySelector(".products-container");
       productsContainer.innerHTML =
-        "Nous sommes désolés, nous n'avons pas réussi à afficher nos caméras. Réessayez et contactez-nous si le problème persiste";
+        "Désolés, nous n'avons pas réussi à afficher nos caméras. Réessayez et contactez-nous si le problème persiste";
       productsContainer.style.textAlign = "center";
     })
 
