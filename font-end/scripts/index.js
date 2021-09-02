@@ -4,13 +4,6 @@ function getArticles() {
     .then(function (res) {
       return res.json();
     })
-    // Création du message d'erreur
-    .catch((error) => {
-      let productsContainer = document.querySelector(".products-container");
-      productsContainer.innerHTML =
-        "Désolés, nous n'avons pas réussi à afficher nos caméras. Réessayez et contactez-nous si le problème persiste";
-      productsContainer.style.textAlign = "center";
-    })
 
     // Dispatch des données de chaque produit dans le DOM
     .then(function (resultatAPI) {
@@ -61,6 +54,14 @@ function getArticles() {
           currency: "EUR",
         }).format(resultatAPI[article].price);
       }
+    })
+    
+    // Création du message d'erreur
+    .catch((error) => {
+      let productsContainer = document.querySelector(".products-container");
+      productsContainer.innerHTML =
+        "Désolés, nous n'avons pas réussi à afficher nos caméras. Réessayez et contactez-nous si le problème persiste";
+      productsContainer.style.textAlign = "center";
     });
 }
 
