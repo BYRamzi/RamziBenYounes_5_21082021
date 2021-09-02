@@ -16,14 +16,7 @@ function getCameras() {
     .then(function (response) {
       return response.json();
     })
-    // Création du message d'erreur
-    .catch((error) => {
-      let container = document.querySelector(".container");
-      container.innerHTML =
-        "Nous n'avons pas réussi à afficher nos caméras. Si le problème persiste, contactez-nous.";
-      container.style.textAlign = "center";
-      container.style.padding = "280px";
-    })
+    
     .then(function (resultatAPI) {
       // Dispatch des données reçues via l'API aux bons endroits sur la page
       article = resultatAPI;
@@ -44,7 +37,45 @@ function getCameras() {
         option.innerText = article.lenses[i];
         lenseSelect.appendChild(option);
       }
+    })
+    // Création du message d'erreur
+    .catch((error) => {
+      let container = document.querySelector(".container");
+      container.innerHTML =
+        "Nous n'avons pas réussi à afficher nos caméras. Si le problème persiste, contactez-nous.";
+      container.style.textAlign = "center";
+      container.style.padding = "280px";
     });
+}
+
+function addtoCart() {
+  const addtoCartBtn = document.querySelector(".add-to-cart");
+
+  addtoCartBtn.addEventListener("click", () => {
+      if (cameraNumber.value > 0 && cameraNumber.value < 100) {
+          //Création du produit ajouté au panier
+          let productAdded = {
+              name: productCardName.innerHTML,
+              price: parseFloat(productCardPrice.innerHTML),
+              quantity: parseFloat(document.querySelector("#cameraNumber").value),
+              _id: id,
+          };
+          // Déclaration tableau pour gestion du localStorage
+          let arrayProductsInCart = [];
+
+          //Si localStorage existe, on récupère son contenu
+          if (localStorage.getItem("products") !==null) {
+              arrayProductsInCart = JSON.parse(localStorage.getItem("products"));
+          }
+          // On crée le localStorage avec le produit ajouté
+          arrayProductsInCart.push(productAdded);
+          localStorage.setItem("products", JSON.stringify(arrayProductsInCart));
+          console.log(localStorage);
+          alert('Votre article a bien été ajouté');
+      } else {
+          alert('La quantité doit être comprise entre 1 et 99')
+      }
+  });
 }
 
 // Appel de la fonction
@@ -52,5 +83,6 @@ main();
 
 function main() {
   getCameras();
+  addtoCart();
 }
 

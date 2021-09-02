@@ -29,15 +29,15 @@
         </nav>
     </header>
     <main>
-        <div class="container">
-            <div class="product-card">
-                <div class="product-card__img">
-                    <img src="" alt="" class="img">
+        <div class="container d-flex justify-content-center">
+            <div class="product-card card" style="width: 20rem;">
+                <div class="product-card__img card-img-top text-center">
+                    <img src="" alt="" class="img w-100">
                 </div>
-                <div class="product-card__infos">
-                    <h3 class="product-card__infos__title"></h3>
-                    <p class="product-card__infos__description"></p>
-                    <p class="product-card__infos__price"></p>
+                <div class="product-card__infos card-body">
+                    <h3 class="product-card__infos__title card-title text-center"></h3>
+                    <p class="product-card__infos__description card-text text-center"></p>
+                    <p class="product-card__infos__price text-center"></p>
                     <div class="product-card__infos__quantity">
                         <label for="cameraNumber">Quantité :</label>
                         <input id="cameraNumber" type="number" name="cameraNumber" value="1" min="1">
@@ -49,14 +49,14 @@
                     <div class="added-to-cart-confirmation">
                         <p class="confirmation-text"></p>
                     </div>
-                    <div class="product-card__infos__buttons">
-                        <a href="index.html">
+                    <div class="product-card__infos__buttons row">
+                        <a href="index.html" class="col-6">
                             <div class="product-card__infos__button back-to-home">
                                 Revenir aux caméras
                             </div>
                         </a>
-                        <a href="#">
-                            <div class="product-card__infos__button add-to-cart">
+                        <a href="#" class="col-6">
+                            <div class="product-card__infos__button add-to-cart btn btn-primary">
                                 Ajouter au panier
                             </div>
                         </a>
