@@ -1,9 +1,9 @@
-//---AFFICHAGE DES PRODUITS DU PANIER
+//****AFFICHAGE DES PRODUITS DU PANIER
 const cart = document.querySelector(".cart-summary");
 let arrayProductsInCart = JSON.parse(localStorage.getItem("products"));
 
 function displayCart() {
-        // Si panier est vide : affiche un message
+    // Si panier est vide : affiche un message
     if(arrayProductsInCart === null){
         let ifEmptyCart = cart;
         ifEmptyCart.classList.add(".if-empty-cart")
@@ -31,16 +31,13 @@ function displayCart() {
             productsList.appendChild(productPrice);
             productPrice.classList.add("product-price");
             // Affichage du prix avec le formatage €
-            productPrice.innerHTML = new Intl.NumberFormat("fr-FR", {
-            style: "currency",
-            currency: "EUR",
-            }).format(arrayProductsInCart[product].price * arrayProductsInCart[product].quantity);
+            productPrice.innerHTML = (arrayProductsInCart[product].price * arrayProductsInCart[product].quantity) + "€";
         }
     } 
 }
 
 
-//---CALCUL DU MONTANT TOTAL DU PANIER
+//****CALCUL DU MONTANT TOTAL DU PANIER
 
 function totalCountCart() {
     // Déclaration de variable pour mettre les prix présents dans le panier
@@ -67,16 +64,12 @@ function totalCountCart() {
     arrayPriceCart = arrayPriceCart.reduce(reducer);
 
     // Affichage du prix total en €
-    totalPrice.innerText = `Total : ${(arrayPriceCart = new Intl.NumberFormat(
-    "fr-FR",
-    {
-        style: "currency",
-        currency: "EUR",
-    }
-    ).format(arrayPriceCart))}`;
+    totalPrice.innerText = `Total : ${arrayPriceCart} €`;
+
+    localStorage.setItem("totalPrice", JSON.stringify(arrayPriceCart));
 }
 
-//---SUPPRESSION DE TOUS LES PRODUITS DU PANIER
+//****SUPPRESSION DE TOUS LES PRODUITS DU PANIER
 function toEmptyCart() {
     // Au clic sur le bouton, tous les produits sont supprimés du panier et du local storage
     const buttonDeleteCart = document.querySelector(".empty-cart");
@@ -85,9 +78,74 @@ function toEmptyCart() {
     });
 }
 
+//****FORMULAIRE 
 
+function checkform() {
+    //****Déclaration des variables pour récuperer les éléments inputs dans le DOM */
+    let lastName = document.querySelector("#lastname");
+    let firstName = document.querySelector("#firstname");
+    let address = document.querySelector("#address");
+    let city = document.querySelector("#city");
+    let email = document.querySelector("#mail");
+    const submit = document.querySelector("#submit");
+
+    //gestion de la conformité du formulaire
+    const regexName = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$/;
+    const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
+    const regexAddress = /^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/;
+    const regexCity = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$/;
+    
+    submit.addEventListener("click", (e) => {
+        if (!regexName.test(lastName.value) ||
+            !regexName.test(firstName.value) ||
+            !regexEmail.test(email.value) ||
+            !regexAddress.test(address.value) ||
+            !regexCity.test(city.value)) {
+            alert("Merci de vérifier que tous les champs complétés sont corrects.");
+        } else {
+            e.preventDefault();
+            // création de l'objet contact pour la fiche client
+            let products = [];
+            let productsBought = JSON.parse(localStorage.getItem("products"));
+            productsBought.forEach(p => {
+                products.push(p._id);
+            })
+            console.log(productsBought);
+
+            // création d'une constante rassemblant formulaire et produits 
+            const order = {
+                contact: {
+                    firstName: firstName.value,
+                    lastName: lastName.value,
+                    address: address.value,
+                    city: city.value,
+                    email: mail.value,
+                },
+                products: products,
+            };
+            console.log(order);
+
+            // Envoi de la requete POST pour le backend
+            fetch("http://localhost:3000/api/cameras/order", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(order),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    localStorage.setItem("orderId", data.orderId);
+                    // envoi vers la page de confirmation
+                    document.location.href = "confirmation.html";  
+                })
+                .catch((erreur) => console.log("erreur : " + erreur));
+        }
+
+    });
+}
 
 // Appel des fonctions
 displayCart();
 toEmptyCart();
 totalCountCart();
+checkform();
