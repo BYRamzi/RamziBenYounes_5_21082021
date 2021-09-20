@@ -4,18 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oricameras</title>
+    <title>Oricamera</title>
 
     <!--CSS-->
     <link href="styles/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/css/styles.css" rel="stylesheet">
+
+    <!-- jQuery link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" defer></script>
+    <!-- Bootstrap JS -->
+    <script src="styles/bootstrap/js/bootstrap.min.js" defer></script>
+    
+    <script src="scripts/product.js" defer></script>
 </head>
 
 <body>
+    <!--HEADER-->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
             <a class="navbar-brand" href="index.html">
                 <img src="img/logo-oricamera.jpg" alt="Logo Oricamera" width="50" height="50" class="d-inline-block"/>
-                Oricameras
+                Oricamera
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,11 +37,14 @@
             </div>
         </nav>
     </header>
+
+    <!--MAIN PRODUCT-->
     <main>
-        <div class="container d-flex justify-content-center">
-            <div class="product-card card" style="width: 20rem;">
+        <h2 class="cart-title text-center">Votre sélection</h2>
+        <div class="container d-flex justify-content-center col-md-6 col-lg-6">
+            <div class="product-card card">
                 <div class="product-card__img card-img-top text-center">
-                    <img src="" alt="" class="img w-100">
+                    <img src="" alt="photo camera" class="img w-100">
                 </div>
                 <div class="product-card__infos card-body">
                     <h3 class="product-card__infos__title card-title text-center"></h3>
@@ -46,27 +58,17 @@
                         <label for="lense-select">Lentilles</label>
                         <select name="lense" id="lense-select"></select>
                     </div>
-                    <div class="added-to-cart-confirmation">
-                        <p class="confirmation-text"></p>
-                    </div>
                     <div class="product-card__infos__buttons row">
-                        <a href="index.html" class="col-6">
-                            <div class="product-card__infos__button back-to-home">
-                                Revenir aux caméras
-                            </div>
-                        </a>
-                        <a href="#" class="col-6">
-                            <div class="product-card__infos__button add-to-cart btn btn-primary">
-                                Ajouter au panier
-                            </div>
-                        </a>
+                        <a href="#" class="add-cart-btn btn">Ajouter au panier</a>
+                        <a href="index.html" class="back-home-link">Revenir aux caméras</a>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-
-    <footer class="bg-dark">
+    
+    <!--FOOTER-->
+    <footer>
         <div class="container-fluid text-center">
             <div class="row">
                 <div class="col">
@@ -77,14 +79,6 @@
                 </div>
             </div>
         </div>
-    </footer>
-
-    <script src="scripts/product.js"></script>
-    
+    </footer>    
 </body>
-
-    <!-- jQuery link -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="styles/bootstrap/js/bootstrap.min.js"></script>
 </html>

@@ -4,18 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oricameras</title>
+    <title>Oricamera</title>
 
     <!--CSS-->
     <link href="styles/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/css/styles.css" rel="stylesheet">
+
+    <!-- jQuery link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" defer></script>
+    <!-- Bootstrap JS -->
+    <script src="styles/bootstrap/js/bootstrap.min.js" defer></script>
+    
+    <script src="scripts/cart.js" defer></script>
 </head>
 
 <body>
+    <!--HEADER-->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
             <a class="navbar-brand" href="index.html">
                 <img src="img/logo-oricamera.jpg" alt="Logo Oricamera" width="50" height="50" class="d-inline-block"/>
-                Oricameras
+                Oricamera
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -29,10 +38,11 @@
         </nav>
     </header>
 
+    <!--MAIN CART-->
     <main>
         <div class="container">
             <div class="cart">
-                <h2 class="cart-title">Votre panier</h2>
+                <h2 class="cart-title text-center">Votre panier</h2>
                 <div class="cart-summary">
                     <div class="cart-summary__header d-flex">
                         <div class="cart-summary__title name">Nom</div>
@@ -41,19 +51,25 @@
                     </div>
                     <div class="cart-summary__products">
 
-                    </div>                     
+                    </div>                    
+                    <h2 class="total"></h2> 
                     <div class="empty-cart">
                         <a href="cart.html">
-                            <div class="empty-cart__btn">
+                            <div class="empty-cart__btn btn">
                                 Vider le panier
                             </div>
                         </a>
-                    </div>
-                    <h2 class="total"></h2>            
-                </div>   
+                    </div>           
+                </div> 
+                
+                <!--Formulaire-->
                 <div class="cart-form">
-                    <h2>Merci de remplir vos coordonnées afin de finaliser votre commande !</h2>
+                    <h2 class="text-center">Merci de remplir vos coordonnées afin de finaliser votre commande !</h2>
                     <form class="form">
+                        <div class="cart__form-line" id="mail-bloc">
+                            <label for="mail">Adresse mail :</label>
+                            <input type="email" placeholder="Adresse mail" id="mail" name="user_mail" required>
+                        </div>
                         <div class="cart__form-line" id="lastname-bloc">
                             <label for="lastname">Nom :</label>
                             <input type="text" placeholder="Nom" id="lastname" name="user_lastname" required>
@@ -68,20 +84,16 @@
                         </div> 
                         <div class="cart__form-line" id="city-bloc">
                             <label for="city">Ville :</label>
-                            <input type="text" placeholder="Ville" id="city" name="user_city" required>                            </div>
-                        </div>       
-                        <div class="cart__form-line" id="mail-bloc">
-                            <label for="mail">Adresse mail :</label>
-                            <input type="email" placeholder="Adresse mail" id="mail" name="user_mail" required>
-                        </div>
-                        <div class="error"></div>
-                        <input id="submit" type="submit" class="cart__form__btn" value="Commander"/>
-                    </form>                                        
-                </div>
+                            <input type="text" placeholder="Ville" id="city" name="user_city" required>                           
+                        </div>      
+                    </form> 
+                    <a id="submit" class="cart__form__btn btn">Commander</a>                                      
+                </div> 
             </div>
         </div>
     </main>
 
+    <!--FOOTER-->
     <footer class="bg-dark">
         <div class="container-fluid text-center">
             <div class="row">
@@ -94,13 +106,5 @@
             </div>
         </div>
     </footer>
-
-    <script src="scripts/cart.js"></script>
-    
 </body>
-
-    <!-- jQuery link -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="styles/bootstrap/js/bootstrap.min.js"></script>
 </html>
