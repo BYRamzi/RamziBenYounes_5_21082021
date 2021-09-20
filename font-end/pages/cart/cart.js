@@ -135,7 +135,7 @@ function checkform() {
                     console.log(data);
                     localStorage.setItem("orderId", data.orderId);
                     // envoi vers la page de confirmation
-                    document.location.href = "confirmation.html";  
+                    document.location.href = "../confirmation/confirmation.html";  
                 })
                 .catch((erreur) => console.log("erreur : " + erreur));
         }

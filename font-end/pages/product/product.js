@@ -53,9 +53,9 @@ function popUpConfirmation() {
   if (window.confirm(`Votre produit a bien été ajouté au panier!
       OK pour aller au panier
       ou ANNULER pour continuer votre shopping!`)) {
-      window.location.href = "./cart.html";
+      window.location.href = "../cart/cart.html";
   } else {
-      window.location.href = "./index.html";
+      window.location.href = "../index/index.html";
   }
 }
 
@@ -85,7 +85,7 @@ function addtoCart() {
       popUpConfirmation();
 
     // Sinon, si j'ai un panier
-    // Je vérifie que n'ai pas d'objet dans le panier avant de l'ajouter
+    // Je vérifie que je n'ai pas d'objet dans le panier avant de l'ajouter
     } else if(!arrayProductsInCart.some(p => p._id === productAdded._id)) {
       arrayProductsInCart.push(productAdded);
       localStorage.setItem("products", JSON.stringify(arrayProductsInCart));
