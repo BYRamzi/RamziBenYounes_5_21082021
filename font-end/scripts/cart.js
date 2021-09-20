@@ -1,16 +1,17 @@
-//****AFFICHAGE DES PRODUITS DU PANIER
+//*** AFFICHAGE DES PRODUITS DU PANIER ***//
+
 const cart = document.querySelector(".cart-summary");
 let arrayProductsInCart = JSON.parse(localStorage.getItem("products"));
 
 function displayCart() {
-    // Si panier est vide : affiche un message
+    //Si panier est vide : affiche un message
     if(arrayProductsInCart === null){
         let ifEmptyCart = cart;
         ifEmptyCart.classList.add(".if-empty-cart")
         ifEmptyCart.innerHTML = "Votre panier est vide.";
         ifEmptyCart.style.textAlign = "center";
     } else {
-    // Si le panier n'est pas vide, affiche les produits du local storage
+    //Si le panier n'est pas vide, affiche les produits du local storage
         const productsCartSummary = document.querySelector(".cart-summary__products");
         for (let product in arrayProductsInCart) {
             let productsList = document.createElement("div");
@@ -37,8 +38,7 @@ function displayCart() {
 }
 
 
-//****CALCUL DU MONTANT TOTAL DU PANIER
-
+// Calcul du montant total du panier 
 function totalCountCart() {
     // Déclaration de variable pour mettre les prix présents dans le panier
     let arrayPriceCart = [];
@@ -69,7 +69,7 @@ function totalCountCart() {
     localStorage.setItem("totalPrice", JSON.stringify(arrayPriceCart));
 }
 
-//****SUPPRESSION DE TOUS LES PRODUITS DU PANIER
+// Suppression de tous les produits du panier
 function toEmptyCart() {
     // Au clic sur le bouton, tous les produits sont supprimés du panier et du local storage
     const buttonDeleteCart = document.querySelector(".empty-cart");
@@ -78,10 +78,9 @@ function toEmptyCart() {
     });
 }
 
-//****FORMULAIRE 
-
+// Formulaire 
 function checkform() {
-    //****Déclaration des variables pour récuperer les éléments inputs dans le DOM */
+    //Déclaration des variables pour récuperer les éléments inputs dans le DOM 
     let lastName = document.querySelector("#lastname");
     let firstName = document.querySelector("#firstname");
     let address = document.querySelector("#address");
@@ -89,7 +88,7 @@ function checkform() {
     let email = document.querySelector("#mail");
     const submit = document.querySelector("#submit");
 
-    //gestion de la conformité du formulaire
+    // Gestion de la conformité du formulaire
     const regexName = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$/;
     const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
     const regexAddress = /^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/;
