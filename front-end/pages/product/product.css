@@ -1,0 +1,49 @@
+/***MAIN PRODUCT ***/
+
+.product-card__infos__title {
+    font-size: 20px;
+}
+
+.product-card__infos__description, label {
+    font-size: 16px;
+    color: black;
+
+}
+
+.product-card__infos__title, .product-card__infos__price, label {
+    font-weight: bold;
+    color: black;
+}
+
+.product-card__infos__price{
+    font-size: 18px;
+}
+
+#cameraNumber, #lense-select {
+    width: 100px;
+    height: 30px;
+    border-color: black;
+    color: black;
+    border-radius: 10px;
+    border: solid 1px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.product-card__infos__buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 15px;
+}
+
+.back-home-link{
+    font-size: 16px;
+    color: grey;
+}
+
+.back-home-link:hover{
+    color: black;
+}
