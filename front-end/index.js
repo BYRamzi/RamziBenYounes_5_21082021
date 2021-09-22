@@ -20,7 +20,7 @@ function getArticles() {
           // Création du lien vers produit.html pour chaque bloc
           let productLink = document.createElement("a");
           productCard.appendChild(productLink);
-          productLink.href = `../product/product.html?id=${resultatAPI[article]._id}`;
+          productLink.href = `pages/product/product.html?id=${resultatAPI[article]._id}`;
           productLink.classList.add("product-link","card","h-100","w-100");
   
           // Création d'un bloc pour l'image du produit
