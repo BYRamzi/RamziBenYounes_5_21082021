@@ -55,7 +55,7 @@ function popUpConfirmation() {
       ou ANNULER pour continuer votre shopping!`)) {
       window.location.href = "../cart/cart.html";
   } else {
-      window.location.href = "../index/index.html";
+      window.location.href = "../../../index.html";
   }
 }
 
