@@ -94,6 +94,7 @@ function checkform() {
     const regexAddress = /^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/;
     const regexCity = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$/;
     
+    // Ecoute du "click" sur le bouton pour confirmer la commande
     submit.addEventListener("click", (e) => {
         if (!regexName.test(lastName.value) ||
             !regexName.test(firstName.value) ||

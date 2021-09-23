@@ -48,7 +48,7 @@ function getCameras() {
     });
 }
 
-// 
+// Fenêtre de confirmation d'ajout au panier
 function popUpConfirmation() {
   if (window.confirm(`Votre produit a bien été ajouté au panier!
       OK pour aller au panier
