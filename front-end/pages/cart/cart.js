@@ -110,7 +110,6 @@ function checkform() {
             productsBought.forEach(p => {
                 products.push(p._id);
             })
-            console.log(productsBought);
 
             // création d'une constante rassemblant formulaire et produits 
             const order = {
@@ -123,7 +122,6 @@ function checkform() {
                 },
                 products: products,
             };
-            console.log(order);
 
             // Envoi de la requete POST pour le backend
             fetch("http://localhost:3000/api/cameras/order", {

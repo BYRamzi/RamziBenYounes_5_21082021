@@ -10,7 +10,6 @@ function getArticles() {
       // Dispatch des données de chaque produit dans le DOM
       .then(function (resultatAPI) {
         const articles = resultatAPI;
-        console.log(articles);
         for (let article in articles) {
           // Création d'une div pour chaque produit dans le bloc "products"
           let productCard = document.createElement("div");
